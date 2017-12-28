@@ -1,0 +1,25 @@
+server:
+  port: 9990
+logging:
+  pattern:
+    console: "%d %clr(%-5level) %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    root: ERROR
+    com.wifishared: DEBUG
+    org.springframework: INFO
+    sun.net.www: INFO
+    org.hibernate: INFO
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 600000     
+---
+spring:
+  profiles: dev 
+  application:
+    name: usermgmt
